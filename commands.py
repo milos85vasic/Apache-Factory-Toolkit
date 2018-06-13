@@ -101,11 +101,11 @@ def run_as_user(account, command):
 
 
 def git_clone(what):
-    return "git clone " + what
+    return "git clone --recurse-submodules " + what
 
 
 def git_clone_to(what, where):
-    return "git clone " + what + " " + where
+    return "git clone --recurse-submodules " + what + " " + where
 
 
 def git_checkout(what):
