@@ -104,6 +104,13 @@ def git_clone(what):
     return "git clone --recurse-submodules " + what
 
 
+def git_update_submodules():
+    return concatenate(
+        "git submodule init",
+        "git submodule update"
+    )
+
+
 def git_clone_to(what, where):
     return "git clone --recurse-submodules " + what + " " + where
 
