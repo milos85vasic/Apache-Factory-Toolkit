@@ -1,4 +1,3 @@
-
 default_port = 8080
 default_port_mysql = 3306
 account_json = "account.json"
@@ -7,4 +6,8 @@ apache_factory_configuration_dir = "/usr/share/apache_factory"
 default_configuration_json = apache_factory_configuration_dir + "/global_configuration.json"
 
 wipe_script = "wipe.py"
+content_dir_name = "Content"
 
+
+def content_dir_path(home_path):
+    return home_path + "/" + content_dir_name
