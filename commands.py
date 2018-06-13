@@ -113,13 +113,15 @@ def git_checkout(what):
 
 
 def python(script, *params):
-    arguments = ""
-    for item in params:
-        arguments += " " + item
-    if not arguments:
-        return "python " + script
-    else:
-        return "python " + script + " " + arguments
+    if os.path.isfile(script):
+        arguments = ""
+        for item in params:
+            arguments += " " + item
+        if not arguments:
+            return "python " + script
+        else:
+            return "python " + script + " " + arguments
+    return "echo 'No script named " + script + "'"
 
 
 def rm(what):
