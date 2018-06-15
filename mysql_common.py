@@ -9,7 +9,10 @@ def user_home():
 
 
 def get_mysql_bin_directory():
-    return user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql/bin"
+    # MySQL 8.0:
+    # return user_home() + "/" + mysql + "/" + mysql_installation_dir + "/usr/local/mysql/bin"
+    # MySQL 5.5.60:
+    return user_home() + "/" + mysql + "/" + mysql_bin_dir
 
 
 def get_mysql_logs_directory():
