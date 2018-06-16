@@ -20,7 +20,7 @@ def get_mysql_logs_directory():
 
 
 def get_start_command(account_home):
-    return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.conf &"
+    return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir + "/my.cnf &"
 
 
 def get_start_command_init(account_home):
