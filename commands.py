@@ -101,7 +101,7 @@ def run_as_user(account, command):
 
 
 def git_clone(what):
-    return "git clone --recurse-submodules " + what
+    return "git clone " + what
 
 
 def git_submodule_init():
@@ -113,7 +113,7 @@ def git_submodule_update():
 
 
 def git_clone_to(what, where):
-    return "git clone --recurse-submodules " + what + " " + where
+    return "git clone " + what + " " + where
 
 
 def git_checkout(what):
