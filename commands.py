@@ -121,6 +121,9 @@ def git_checkout(what):
 
 
 def python(script, *params):
+    print("Executing: ")
+    print(script)
+    print("- - - - - - - - - - - - - - - - - - ")
     if os.path.isfile(script):
         arguments = ""
         for item in params:
