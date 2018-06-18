@@ -35,3 +35,16 @@ system_configuration = get_system_configuration()
 
 initialize = "/mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + \
              "/my.cnf --initialize --user=" + account
+
+# MySQL 5.5.60:
+port = default_port_mysql
+if account in system_configuration:
+    if key_configuration_port_mysql in system_configuration[account]:
+        port = system_configuration[account][key_configuration_port_mysql]
+
+mysql_full_path = get_home_directory_path(account) + "/" + mysql + "/"
+
+start_mysql_command = mysql_full_path + mysql_bin_dir + "/mysqld --tmpdir=" + mysql_full_path + "tmp --datadir=" + \
+                      mysql_full_path + "data " + "--secure-file-priv=" + mysql_full_path + "priv --port=" + str(port) \
+                      + " --user=" + account + " " + "--socket=" + mysql_full_path + "socket &"
+# MySQL 5.5.60 - end:
