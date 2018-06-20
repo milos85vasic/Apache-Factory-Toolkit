@@ -104,8 +104,16 @@ def git_clone(what):
     return "git clone " + what
 
 
+def git_clone_recursive(what):
+    return "git clone " + what + " --recursive"
+
+
 def git_submodule_init():
     return "git submodule init"
+
+
+def git_submodule_checkout_each():
+    return "git submodule foreach --recursive git checkout master"
 
 
 def git_submodule_update():
