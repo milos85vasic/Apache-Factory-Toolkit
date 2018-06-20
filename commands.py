@@ -11,8 +11,11 @@ def sudo(what):
     return "sudo " + what
 
 
-def get_yum(what):
-    return "yum install -y " + what
+def get_yum(*what):
+    items = ""
+    for item in what:
+        items += item + " "
+    return "yum install -y " + items
 
 
 def get_yum_group(what):
