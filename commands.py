@@ -124,6 +124,10 @@ def git_clone_to(what, where):
     return "git clone " + what + " " + where
 
 
+def git_clone_to_recursive(what, where):
+    return "git clone " + what + " " + where + " --recursive"
+
+
 def git_checkout(what):
     return "git checkout " + what
 
