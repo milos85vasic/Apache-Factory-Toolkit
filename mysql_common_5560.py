@@ -13,7 +13,7 @@ def get_mysql_start_command(user_account):
 
     return mysql_full_path + mysql_bin_dir + "/mysqld --tmpdir=" + mysql_full_path + "tmp --datadir=" \
            + mysql_full_path + "data " + "--secure-file-priv=" + mysql_full_path + "priv --port=" + str(port) \
-           + " --user=" + user_account + " " + "--socket=" + mysql_full_path + "socket &"  # FIXME: Socket parameter not ok! It is 'sock' not 'socket'
+           + " --user=" + user_account + " " + "--socket=" + mysql_full_path + "sock/socket &"
 
 
 
