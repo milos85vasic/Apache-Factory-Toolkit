@@ -26,6 +26,8 @@ apache_factory_configuration_dir = "/usr/share/apache_factory"
 default_configuration_json = apache_factory_configuration_dir + "/global_configuration.json"
 
 wipe_script = "wipe.py"
+factory_script = "factory.py"
+
 content_dir_name = "Content"
 
 
