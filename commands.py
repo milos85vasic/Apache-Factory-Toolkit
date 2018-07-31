@@ -159,6 +159,10 @@ def apache_start():
     return "./apachectl start"
 
 
+def pyramid_start():
+    return "pserve develop"
+
+
 def apache_stop():
     return "./apachectl stop"
 
