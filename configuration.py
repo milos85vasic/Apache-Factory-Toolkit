@@ -29,6 +29,7 @@ default_configuration_json = apache_factory_configuration_dir + "/global_configu
 wipe_script = "wipe.py"
 factory_script = "factory.py"
 distribution_script = "distribute.py"
+services_distribution_script = "distribute_services.py"
 
 content_dir_name = "Content"
 
