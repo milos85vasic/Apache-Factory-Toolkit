@@ -14,7 +14,8 @@ if branch is not "master":
 steps = [
     "mkdir Toolkit",
     "git clone --recurse-submodules https://github.com/milos85vasic/Apache-Factory-Toolkit.git ./Toolkit",
-    setup
+    setup,
+    "rm -rf ./Toolkit"
 ]
 
 for cmd in steps:
