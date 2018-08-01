@@ -16,5 +16,5 @@ steps = [
     setup
 ]
 
-for cmd in what:
+for cmd in steps:
     os.system(cmd)
