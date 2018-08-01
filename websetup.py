@@ -15,7 +15,8 @@ steps = [
     "mkdir Toolkit",
     "git clone --recurse-submodules https://github.com/milos85vasic/Apache-Factory-Toolkit.git ./Toolkit",
     setup,
-    "rm -rf ./Toolkit"
+    "rm -rf ./Toolkit",
+    "rm -f " + os.path.basename(__file__)
 ]
 
 for cmd in steps:
