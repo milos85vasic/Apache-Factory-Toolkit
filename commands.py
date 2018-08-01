@@ -160,7 +160,7 @@ def apache_start():
 
 
 def pyramid_start():
-    return "pserve develop"
+    return "pserve pyramid_factory.ini"
 
 
 def apache_stop():
