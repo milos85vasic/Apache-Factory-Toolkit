@@ -22,14 +22,23 @@ if what is apache_factory:
     ]
 
     run(steps)
+    exit()
 
 if what is pyramid_factory:
-    run_as_su(
-        concatenate(
-            cd("/root"),
-            mkdir(pyramid_factory),
-            cd(pyramid_factory),
-            git_clone_to_recursive_submodules("https://github.com/milos85vasic/Pyramid-Factory.git"),
-            git_checkout(branch)
+    steps = [
+        run_as_su(
+            concatenate(
+                cd("/root"),
+                mkdir(pyramid_factory),
+                cd(pyramid_factory),
+                git_clone_to_recursive_submodules("https://github.com/milos85vasic/Pyramid-Factory.git"),
+                git_checkout(branch)
+            )
         )
-    )
+    ]
+
+    run(steps)
+    exit()
+
+print("Not recognized: " + what)
+exit(1)
