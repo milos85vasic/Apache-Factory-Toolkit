@@ -3,7 +3,7 @@ import sys
 branch = "master"
 what = sys.argv[1]
 
-if sys.argv[2]:
+if len(sys.argv) >= 3:
     branch = sys.argv[2]
 
 setup = "python websetup_run.py " + what
