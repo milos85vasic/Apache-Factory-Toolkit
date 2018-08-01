@@ -8,7 +8,7 @@ what = sys.argv[1]
 if len(sys.argv) >= 3:
     branch = sys.argv[2]
 
-if what is apache_factory:
+if what == apache_factory:
     steps = [
         run_as_su(
             concatenate(
@@ -24,7 +24,7 @@ if what is apache_factory:
     run(steps)
     exit()
 
-if what is pyramid_factory:
+if what == pyramid_factory:
     steps = [
         run_as_su(
             concatenate(
