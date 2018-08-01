@@ -1,6 +1,4 @@
 import sys
-from commands import *
-from configuration import *
 
 branch = "master"
 what = sys.argv[1]
@@ -8,28 +6,14 @@ what = sys.argv[1]
 if sys.argv[2]:
     branch = sys.argv[2]
 
-if what is apache_factory:
-    steps = [
-        run_as_su(
-            concatenate(
-                cd("/root"),
-                mkdir(apache_factory),
-                cd(apache_factory),
-                git_clone_to_recursive_submodules("https://github.com/milos85vasic/Apache-Factory.git"),
-                git_checkout(branch)
-            )
-        )
-    ]
+setup = "python websetup_run.py " + what
+if branch is not "master":
+    setup += " " + branch
 
-    run(steps)
+steps = [
+    "git clone --recurse-submodules https://github.com/milos85vasic/Apache-Factory-Toolkit.git ./",
+    setup
+]
 
-if what is pyramid_factory:
-    run_as_su(
-        concatenate(
-            cd("/root"),
-            mkdir(pyramid_factory),
-            cd(pyramid_factory),
-            git_clone_to_recursive_submodules("https://github.com/milos85vasic/Pyramid-Factory.git"),
-            git_checkout(branch)
-        )
-    )
+for cmd in what:
+    os.system(cmd)
