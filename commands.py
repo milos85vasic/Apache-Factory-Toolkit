@@ -221,3 +221,8 @@ def pip(what):
 
 def kill(who):
     return "kill " + who
+
+
+def venv_init():
+    return "virtualenv env"
+
