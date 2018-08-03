@@ -223,6 +223,10 @@ def kill(who):
     return "kill " + who
 
 
+def echo(what):
+    return "echo \"" + what + "\""
+
+
 def venv_init():
     return "virtualenv env"
 
