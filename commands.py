@@ -226,3 +226,11 @@ def kill(who):
 def venv_init():
     return "virtualenv env"
 
+
+def venv_activate():
+    return "source env/bin/activate"
+
+
+def venv_deactivate():
+    return "deactivate"
+
