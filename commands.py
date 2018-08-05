@@ -167,10 +167,6 @@ def apache_start():
     return "./apachectl start"
 
 
-def pyramid_setup():
-    return "python setup.py develop"
-
-
 def pyramid_setup(variant):
     return "python setup.py " + variant
 
