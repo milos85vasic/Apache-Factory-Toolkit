@@ -71,7 +71,7 @@ def cd(where):
 
 
 def mv(what, where):
-    return what + " " + where
+    return "mv " + what + " " + where
 
 
 def cp_dir(what, where):
