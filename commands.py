@@ -24,11 +24,11 @@ def get_yum_group(what):
 
 def concatenate(*what):
     result = ""
-    for index, item in what:
+    for item in what:
         append = item.strip()
         if append:
             result += " " + append
-            if index < len(what):
+            if what.index(item) < len(what) - 1:
                 result += ";"
     return result
 
