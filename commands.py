@@ -172,7 +172,7 @@ def pyramid_setup(variant):
 
 
 def pyramid_start():
-    return "pserve pyramid_factory.ini"
+    return "pserve pyramid_factory.ini &"
 
 
 def apache_stop():
