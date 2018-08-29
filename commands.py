@@ -24,10 +24,12 @@ def get_yum_group(what):
 
 def concatenate(*what):
     result = ""
-    for index, item in enumerate(what):
+    for index, item in what:
         append = item.strip()
         if append:
-            result += " " + append + ";"
+            result += " " + append
+            if index < len(what):
+                result += ";"
     return result
 
 
@@ -233,4 +235,3 @@ def venv_activate():
 
 def venv_deactivate():
     return "deactivate"
-
