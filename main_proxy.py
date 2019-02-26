@@ -2,9 +2,9 @@ import json
 import getpass
 import sys
 
-from Toolkit.commands import *
+from commands import *
 from configuration import *
-from Toolkit.system_configuration import *
+from system_configuration import *
 
 account = getpass.getuser()
 
