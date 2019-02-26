@@ -39,6 +39,7 @@ rpm_fusion_free = "https://download1.rpmfusion.org/free/el/rpmfusion-free-releas
 rpm_fusion_non_free = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm"
 
 rc_local = "/etc/rc.d/rc.local"
+main_proxy_script = "main_proxy.py"
 
 
 def get_home_directory_path(account):
