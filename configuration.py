@@ -38,6 +38,8 @@ service_indexes = ["index.html", "index.htm", "index.php", "setup.py"]
 rpm_fusion_free = "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm"
 rpm_fusion_non_free = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm"
 
+starter_script = "starter.py"
+starter_script_py = "starter_py.py"
 rc_local = "/etc/rc.d/rc.local"
 main_proxy_script = "main_proxy.py"
 
