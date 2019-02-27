@@ -133,10 +133,6 @@ def git_clone_to_recursive(what, where):
     return "git clone " + what + " " + where + " --recursive"
 
 
-def git_clone_to_recursive_submodules(what, where):
-    return "git clone --recurse-submodules " + what + " " + where
-
-
 def git_clone_to_recursive_submodules(what):
     return "git clone --recurse-submodules " + what + " ./"
 
