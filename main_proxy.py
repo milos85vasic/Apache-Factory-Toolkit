@@ -50,6 +50,8 @@ if account in system_configuration:
 
                         except IOError:
                             print("Can't access " + destination_file)
+                    else:
+                        print("Virtual host configuration already exist: " + destination_file)
 
 for scheduled in scheduled_for_restart:
     steps = [
@@ -59,4 +61,3 @@ for scheduled in scheduled_for_restart:
     ]
 
     run(steps)
-
