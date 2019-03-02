@@ -8,6 +8,10 @@ from system_configuration import *
 
 account = getpass.getuser()
 
+if sys.argv.__len__() >= 2:
+    account = sys.argv[1]
+    print("Account passed as parameter: " + account)
+
 system_configuration = get_system_configuration()
 
 scheduled_for_restart = []
