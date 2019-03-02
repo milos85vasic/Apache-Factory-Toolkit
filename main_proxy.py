@@ -53,7 +53,7 @@ if account in system_configuration:
                     else:
                         print("Virtual host configuration already exist: " + destination_file)
 else:
-    print("No account " + account + " in system configuration.")
+    print("No account '" + account + "' in system configuration.")
 
 for scheduled in scheduled_for_restart:
     steps = [
