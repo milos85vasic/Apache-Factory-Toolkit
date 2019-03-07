@@ -8,6 +8,11 @@ arg_prefix = "--"
 arg_server_admin = arg_prefix + "server_admin"
 key_configuration_port = "port"
 key_configuration_port_mysql = "port_mysql"
+key_configuration_port_postfix = "port_postfix"
+key_configuration_port_postfix_secure = "port_postfix_secure"
+key_configuration_port_postfix_submission = "port_postfix_submission"
+key_configuration_port_dovecot = "port_dovecot"
+key_configuration_port_dovecot_secure = "port_dovecot_secure"
 key_configuration_server_admin = "server_admin"
 key_services = "services"
 key_features = "features"
@@ -94,7 +99,11 @@ def get_system_configuration(configuration_dir=apache_factory_configuration_dir)
     # TODO: Refactor this:
     if configuration_dir == mail_server_factory_configuration_dir:
         system_configuration = {
-            # TODO:
+            key_configuration_port_postfix: default_port_postfix,
+            key_configuration_port_postfix_secure: default_port_postfix_secure,
+            key_configuration_port_postfix_submission: default_port_postfix_submission,
+            key_configuration_port_dovecot: default_port_dovecot,
+            key_configuration_port_dovecot_secure: default_port_dovecot_secure,
         }
     if not os.path.isfile(default_config_json):
         try:
