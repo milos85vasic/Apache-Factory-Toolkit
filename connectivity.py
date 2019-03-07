@@ -1,7 +1,7 @@
 import socket, errno
 
 
-def port_available(port_number):
+def is_port_available(port_number):
     success = True
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
