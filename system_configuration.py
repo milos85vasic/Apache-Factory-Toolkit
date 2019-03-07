@@ -31,13 +31,13 @@ key_explicit_port_number = "explicit_port_number"
 key_configuration_repository = "configuration_repository"
 
 
-def init_system_configuration(arguments):
-    if not os.path.isdir(apache_factory_configuration_dir):
+def init_system_configuration(arguments, configuration_dir=apache_factory_configuration_dir):
+    if not os.path.isdir(configuration_dir):
         steps = [
             run_as_su(
                 concatenate(
-                    mkdir(apache_factory_configuration_dir),
-                    chmod(apache_factory_configuration_dir, "770")
+                    mkdir(configuration_dir),
+                    chmod(configuration_dir, "770")
                 )
             )
         ]
