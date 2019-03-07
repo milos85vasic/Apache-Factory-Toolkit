@@ -31,7 +31,11 @@ key_explicit_port_number = "explicit_port_number"
 key_configuration_repository = "configuration_repository"
 
 
-def init_system_configuration(arguments, configuration_dir=apache_factory_configuration_dir):
+def init_system_configuration(
+        arguments,
+        configuration_dir=apache_factory_configuration_dir,
+):
+    default_config_json = configuration_dir + "/global_configuration.json"
     if not os.path.isdir(configuration_dir):
         steps = [
             run_as_su(
@@ -44,7 +48,7 @@ def init_system_configuration(arguments, configuration_dir=apache_factory_config
 
         run(steps)
 
-    system_configuration = get_system_configuration()
+    system_configuration = get_system_configuration(configuration_dir)
     for arg in arguments:
         if arguments.index(arg) > 0 and not str(arg).startswith(arg_prefix):
             system_configuration[arg] = {key_configuration_server_admin: "root@localhost"}
@@ -66,8 +70,8 @@ def init_system_configuration(arguments, configuration_dir=apache_factory_config
     steps = [
         run_as_su(
             concatenate(
-                chmod(default_configuration_json, "770"),
-                chgrp(apache_factory_group, default_configuration_json),
+                chmod(default_config_json, "770"),
+                chgrp(apache_factory_group, default_config_json),
             )
         )
     ]
@@ -81,19 +85,20 @@ def get_account():
     return json.load(open(account_json))
 
 
-def get_system_configuration():
+def get_system_configuration(configuration_dir=apache_factory_configuration_dir):
+    default_config_json = configuration_dir + "/global_configuration.json"
     system_configuration = {
         key_configuration_port: default_port,
         key_configuration_port_mysql: default_port_mysql
     }
-    if not os.path.isfile(default_configuration_json):
+    if not os.path.isfile(default_config_json):
         try:
-            with open(default_configuration_json, 'w') as outfile:
+            with open(default_config_json, 'w') as outfile:
                 json.dump(system_configuration, outfile)
         except IOError:
-            print("Can't access " + default_configuration_json)
+            print("Can't access " + default_config_json)
     else:
-        system_configuration = json.load(open(default_configuration_json))
+        system_configuration = json.load(open(default_config_json))
     return system_configuration
 
 
@@ -102,14 +107,15 @@ def save_account(account):
         json.dump(account, outfile)
 
 
-def save_system_configuration(system_configuration):
-    with open(default_configuration_json, 'w') as outfile:
+def save_system_configuration(system_configuration, configuration_dir=apache_factory_configuration_dir):
+    default_config_json = configuration_dir + "/global_configuration.json"
+    with open(default_config_json, 'w') as outfile:
         json.dump(system_configuration, outfile)
 
 
-def get_services_directories(account):
+def get_services_directories(account, configuration_dir=apache_factory_configuration_dir):
     directories = []
-    system_configuration = get_system_configuration()
+    system_configuration = get_system_configuration(configuration_dir)
     if account in system_configuration:
         if key_services in system_configuration[account]:
             if key_services in system_configuration[account][key_services]:
@@ -118,9 +124,9 @@ def get_services_directories(account):
     return directories
 
 
-def has_feature(account, feature):
+def has_feature(account, feature, configuration_dir=apache_factory_configuration_dir):
     features = None
-    system_configuration = get_system_configuration()
+    system_configuration = get_system_configuration(configuration_dir)
 
     account_configuration = system_configuration[account]
     if isinstance(account_configuration, dict):
