@@ -13,4 +13,12 @@ def is_port_available(port_number):
         else:
             print(e)
     s.close()
+    if success:
+        "Port " + port_number + " is open."
     return success
+
+
+def get_first_available_port(from_port, until_port):
+    while not is_port_available(from_port) and from_port < until_port:
+        from_port = from_port + 1
+    return from_port

@@ -3,6 +3,7 @@ import os
 
 from configuration import *
 from commands import *
+from connectivity import *
 
 arg_prefix = "--"
 arg_server_admin = arg_prefix + "server_admin"
@@ -98,12 +99,18 @@ def get_system_configuration(configuration_dir=apache_factory_configuration_dir)
     }
     # TODO: Refactor this:
     if configuration_dir == mail_server_factory_configuration_dir:
+        until = 1000
         system_configuration = {
-            key_configuration_port_postfix: default_port_postfix,
-            key_configuration_port_postfix_secure: default_port_postfix_secure,
-            key_configuration_port_postfix_submission: default_port_postfix_submission,
-            key_configuration_port_dovecot: default_port_dovecot,
-            key_configuration_port_dovecot_secure: default_port_dovecot_secure,
+            key_configuration_port_postfix:
+                get_first_available_port(default_port_postfix, default_port_postfix + until),
+            key_configuration_port_postfix_secure:
+                get_first_available_port(default_port_postfix_secure, default_port_postfix_secure + until),
+            key_configuration_port_postfix_submission:
+                get_first_available_port(default_port_postfix_submission, default_port_postfix_submission + until),
+            key_configuration_port_dovecot:
+                get_first_available_port(default_port_dovecot, default_port_dovecot + until),
+            key_configuration_port_dovecot_secure:
+                get_first_available_port(default_port_dovecot_secure, default_port_dovecot_secure + until)
         }
     if not os.path.isfile(default_config_json):
         try:
