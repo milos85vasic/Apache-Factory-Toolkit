@@ -1,5 +1,6 @@
 apache_factory = "Apache-Factory"
 pyramid_factory = "Pyramid-Factory"
+mail_server_factory = "Mail-Server-Factory"
 
 php = "Php"
 mysql = "MySQL"

@@ -40,5 +40,21 @@ if what == pyramid_factory:
     run(steps)
     exit()
 
+if what == mail_server_factory:
+    steps = [
+        run_as_su(
+            concatenate(
+                cd("/root"),
+                mkdir(mail_server_factory),
+                cd(mail_server_factory),
+                git_clone_to_recursive_submodules("https://github.com/milos85vasic/Mail-Server-Factory"),
+                git_checkout(branch)
+            )
+        )
+    ]
+
+    run(steps)
+    exit()
+
 print("Not recognized: " + what)
 exit(1)
