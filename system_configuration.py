@@ -91,6 +91,11 @@ def get_system_configuration(configuration_dir=apache_factory_configuration_dir)
         key_configuration_port: default_port,
         key_configuration_port_mysql: default_port_mysql
     }
+    # TODO: Refactor this:
+    if configuration_dir == mail_server_factory_configuration_dir:
+        system_configuration = {
+            # TODO:
+        }
     if not os.path.isfile(default_config_json):
         try:
             with open(default_config_json, 'w') as outfile:
