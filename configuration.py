@@ -22,11 +22,11 @@ mysql_installation_dir = "release"
 
 default_port = 8080
 default_port_mysql = 3306
-default_port_postfix = 25
-default_port_postfix_secure = 465
-default_port_postfix_submission = 587
-default_port_dovecot = 143
-default_port_dovecot_secure = 993
+default_port_postfix = 4000
+default_port_postfix_secure = 5000
+default_port_postfix_submission = 6000
+default_port_dovecot = 7000
+default_port_dovecot_secure = 8000
 account_json = "account.json"
 apache_factory_group = "apache_factory"
 mail_server_factory_group = "mail_server_factory"
