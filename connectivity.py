@@ -14,7 +14,7 @@ def is_port_available(port_number):
             print(e)
     s.close()
     if success:
-        "Port " + port_number + " is open."
+        "Port " + str(port_number) + " is open."
     return success
 
 
