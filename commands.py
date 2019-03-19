@@ -84,6 +84,10 @@ def cp(what, where):
     return "cp " + what + " " + where
 
 
+def check_file(what):
+    return "file " + what
+
+
 def run(what):
     for cmd in what:
         os.system(cmd)
