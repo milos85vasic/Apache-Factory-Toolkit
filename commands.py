@@ -197,6 +197,10 @@ def pwd():
     return "pwd"
 
 
+def ls():
+    return "ls -lF"
+
+
 def sleep(seconds):
     return "sleep " + str(seconds)
 
