@@ -193,6 +193,10 @@ def chown(account, directory):
     return "chown -R " + account + " " + directory
 
 
+def pwd():
+    return "pwd"
+
+
 def sleep(seconds):
     return "sleep " + str(seconds)
 
