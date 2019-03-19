@@ -142,7 +142,7 @@ def git_checkout(what):
 
 
 def python(script, *params):
-    if os.path.exists(script):
+    if os.path.isfile(script):
         arguments = ""
         for item in params:
             arguments += " " + item
