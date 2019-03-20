@@ -42,6 +42,7 @@ find_service_index_script = "find_service_index.py"
 services_distribution_script = "distribute_services.py"
 
 content_dir_name = "Content"
+matrices_dir_name = "Matrices"
 service_indexes = ["index.html", "index.htm", "index.php", "setup.py"]
 
 rpm_fusion_free = "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm"
