@@ -84,6 +84,10 @@ def cp(what, where):
     return "cp " + what + " " + where
 
 
+def check_file(what):
+    return "file " + what
+
+
 def run(what):
     for cmd in what:
         os.system(cmd)
@@ -142,15 +146,13 @@ def git_checkout(what):
 
 
 def python(script, *params):
-    if os.path.isfile(script):
-        arguments = ""
-        for item in params:
-            arguments += " " + item
-        if not arguments:
-            return "python " + script
-        else:
-            return "python " + script + " " + arguments
-    return "echo 'No script named " + script + "'"
+    arguments = ""
+    for item in params:
+        arguments += " " + item
+    if not arguments:
+        return "python " + script
+    else:
+        return "python " + script + " " + arguments
 
 
 def rm(what):
@@ -191,6 +193,14 @@ def chgrp(group, directory):
 
 def chown(account, directory):
     return "chown -R " + account + " " + directory
+
+
+def pwd():
+    return "pwd"
+
+
+def ls():
+    return "ls -lF"
 
 
 def sleep(seconds):
