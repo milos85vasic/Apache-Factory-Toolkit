@@ -71,7 +71,7 @@ def init_system_configuration(
         services_config = json.load(open(services_file))
         account = get_account()
         system_configuration[account][key_services] = services_config
-    save_system_configuration(system_configuration)
+    save_system_configuration(system_configuration, configuration_dir=configuration_dir)
 
     steps = [
         run_as_su(
