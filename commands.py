@@ -241,3 +241,11 @@ def venv_activate():
 
 def venv_deactivate():
     return "deactivate"
+
+
+def venv_init_version(version, name):
+    return "virtualenv -p /usr/bin/python" + str(version) + " --distribute " + name
+
+
+def venv_activate_name(name):
+    return "source " + name + "/bin/activate"
