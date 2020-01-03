@@ -17,11 +17,13 @@ def set_git_info():
     branch_split_result = str(branch_result).split("\n")
 
     for line in url_split_result:
+        print("> > > ", line)
         if fetch_url in str(line):
             repository = str(line).replace(fetch_url, "").strip()
             break
 
     for line in branch_split_result:
+        print("> > > ", line)
         if "* " in str(line):
             branch = str(line)[str(line).index(star) + star.__len__():].strip()
             break
