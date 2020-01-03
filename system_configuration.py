@@ -40,6 +40,7 @@ key_configuration_repository = "configuration_repository"
 def init_system_configuration(
         arguments,
         configuration_dir=apache_factory_configuration_dir,
+        configuration_group=apache_factory_group
 ):
     default_config_json = configuration_dir + "/global_configuration.json"
     if not os.path.isdir(configuration_dir):
@@ -77,7 +78,7 @@ def init_system_configuration(
         run_as_su(
             concatenate(
                 chmod(default_config_json, "770"),
-                chgrp(apache_factory_group, default_config_json),
+                chgrp(configuration_group, default_config_json),
             )
         )
     ]
