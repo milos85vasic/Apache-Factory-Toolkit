@@ -76,6 +76,10 @@ def back():
     return cd("..")
 
 
+def home():
+    return cd("~")
+
+
 def mv(what, where):
     return "mv " + what + " " + where
 
