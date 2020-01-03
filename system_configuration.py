@@ -1,9 +1,9 @@
 import json
 import os
 
-from configuration import *
+from Toolkit.configuration import *
 from Toolkit.commands import *
-from connectivity import *
+from Toolkit.connectivity import *
 
 arg_prefix = "--"
 arg_server_admin = arg_prefix + "server_admin"
