@@ -223,6 +223,14 @@ def pip(what):
     return "pip install " + what
 
 
+def pip_upgrade_version(python_version):
+    return "pip" + str(python_version) + " install --upgrade pip"
+
+
+def pip_version(what, python_version):
+    return "pip" + str(python_version) + " install " + what
+
+
 def kill(who):
     return "kill " + who
 
