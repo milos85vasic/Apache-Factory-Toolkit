@@ -31,8 +31,8 @@ def set_git_info():
         key_repository: repository
     }
 
-    print("Repository is: " + git_configuration[key_repository])
-    print("Branch is: " + git_configuration[key_branch])
+    print("Repository is: ", git_configuration[key_repository])
+    print("Branch is: ", git_configuration[key_branch])
 
     try:
         with open(destination, 'w') as outfile:
