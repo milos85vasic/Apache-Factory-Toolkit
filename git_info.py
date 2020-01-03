@@ -18,14 +18,14 @@ def set_git_info():
 
     for line in url_split_result:
         print("> > > ", line)
-        if fetch_url in line:
-            repository = line.replace(fetch_url, "").strip()
+        if fetch_url in str(line):
+            repository = str(line).replace(fetch_url, "").strip()
             break
 
     for line in branch_split_result:
         print("> > > ", line)
-        if "* " in line:
-            branch = line[line.index(star) + star.__len__():].strip()
+        if "* " in str(line):
+            branch = str(line)[str(line).index(star) + star.__len__():].strip()
             break
 
     git_configuration = {
