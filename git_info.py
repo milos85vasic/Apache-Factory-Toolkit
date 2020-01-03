@@ -18,14 +18,12 @@ def set_git_info():
 
     for line in url_split_result:
         utf_line = line.decode('UTF-8')
-        print("> > > ", utf_line)
         if fetch_url in utf_line:
             repository = utf_line.replace(fetch_url, "").strip()
             break
 
     for line in branch_split_result:
         utf_line = line.decode('UTF-8')
-        print("> > > ", utf_line)
         if "* " in utf_line:
             branch = utf_line[utf_line.index(star) + star.__len__():].strip()
             break
