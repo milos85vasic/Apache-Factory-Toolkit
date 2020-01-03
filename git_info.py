@@ -11,10 +11,10 @@ def set_git_info():
     branch = ""
     repository = ""
     fetch_url = "Fetch URL:"
-    url_result = subprocess.check_output(["git", "remote", "show", "origin"])
-    branch_result = subprocess.check_output(["git", "branch"])
-    url_split_result = str(url_result).splitlines(keepends=False)
-    branch_split_result = str(branch_result).splitlines(keepends=False)
+    url_result, _ = subprocess.Popen(["git", "remote", "show", "origin"], stdout=subprocess.PIPE).communicate()
+    branch_result, _ = subprocess.Popen(["git", "branch"], stdout=subprocess.PIPE).communicate() 
+    url_split_result = url_result.splitlines(keepends=False)
+    branch_split_result = branch_result.splitlines(keepends=False)
 
     for line in url_split_result:
         print("> > > ", line)
