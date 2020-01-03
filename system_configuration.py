@@ -2,7 +2,7 @@ import json
 import os
 
 from configuration import *
-from commands import *
+from Toolkit.commands import *
 from connectivity import *
 
 arg_prefix = "--"
