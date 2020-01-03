@@ -72,6 +72,10 @@ def cd(where):
     return "cd " + where
 
 
+def back():
+    return cd("..")
+
+
 def mv(what, where):
     return "mv " + what + " " + where
 
