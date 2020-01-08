@@ -265,3 +265,7 @@ def venv_init_version(version, name):
 
 def venv_activate_name(name):
     return "source " + name + "/bin/activate"
+
+
+def ssh(user, command, port=22, host="127.0.0.1"):
+    return "ssh -p " + str(port) + " " + user + "@" + host + " " + command
