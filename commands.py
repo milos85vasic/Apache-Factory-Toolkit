@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 here = "./"
 
@@ -269,3 +270,15 @@ def venv_activate_name(name):
 
 def ssh(user, command, port=22, host="127.0.0.1"):
     return "ssh -p " + str(port) + " " + user + "@" + host + " " + command
+
+
+def get_python_cmd():
+    pythons = ["python", "python3", "python2"]
+    for item in pythons:
+        result, _ = subprocess.Popen(["which", item], stdout=subprocess.PIPE).communicate()
+        lines = result.splitlines(keepends=False)
+        for line in lines:
+            utf_line = line.decode('UTF-8')
+            if not "no " + item in utf_line:
+                return item
+    return "python"
