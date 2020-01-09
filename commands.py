@@ -47,7 +47,7 @@ def wget(what, **params):
 
 
 def curl(url):
-    return "curl -H 'Cache-Control: no-cache'" + url
+    return "curl -H \"Cache-Control: no-cache\" " + url
 
 
 def mkdir(dir_name):
