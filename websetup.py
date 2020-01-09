@@ -25,7 +25,6 @@ if __name__ == '__main__':
 
     from Toolkit.commands import get_python_cmd
     python_cmd = get_python_cmd()
-    print("Python cmd: ", python_cmd)
     setup = python_cmd + " ./Toolkit/websetup_run.py " + what
     if branch is not "master":
         setup += " " + branch

@@ -50,6 +50,10 @@ def curl(url):
     return "curl -H \"Cache-Control: no-cache\" " + url
 
 
+def curl_to(url, to):
+    return "curl -H \"Cache-Control: no-cache\" " + url + " > " + to
+
+
 def mkdir(dir_name):
     return "mkdir " + dir_name
 
