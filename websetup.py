@@ -1,7 +1,7 @@
 import os
 import sys
 
-from commands import get_python_cmd
+from .commands import get_python_cmd
 
 branch = "master"
 what = sys.argv[1]
