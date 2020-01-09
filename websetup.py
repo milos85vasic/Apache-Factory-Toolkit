@@ -1,13 +1,15 @@
 import os
 import sys
 
+from commands import get_python_cmd
+
 branch = "master"
 what = sys.argv[1]
 
 if len(sys.argv) >= 3:
     branch = sys.argv[2]
 
-setup = "python ./Toolkit/websetup_run.py " + what
+setup = get_python_cmd() + " ./Toolkit/websetup_run.py " + what
 if branch is not "master":
     setup += " " + branch
 
