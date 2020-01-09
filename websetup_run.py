@@ -1,6 +1,6 @@
 import sys
-from .commands import *
-from .configuration import *
+from Toolkit.commands import *
+from Toolkit.configuration import *
 
 branch = "master"
 what = sys.argv[1]
