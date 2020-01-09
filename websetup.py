@@ -1,7 +1,18 @@
 import os
 import sys
+import subprocess
 
-from .commands import get_python_cmd
+def get_python_cmd():
+    pythons = ["python", "python3", "python2"]
+    for item in pythons:
+        result, _ = subprocess.Popen(["which", item], stdout=subprocess.PIPE).communicate()
+        lines = result.splitlines(keepends=False)
+        for line in lines:
+            utf_line = line.decode('UTF-8')
+            if not "no " + item in utf_line:
+                return item
+    return "python"
+
 
 branch = "master"
 what = sys.argv[1]
