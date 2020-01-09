@@ -280,7 +280,5 @@ def get_python_cmd():
         for line in lines:
             utf_line = line.decode('UTF-8')
             if not "no " + item in utf_line:
-                print("OK: " + item)
                 return item
-    print("OK: default.")                
     return "python"
