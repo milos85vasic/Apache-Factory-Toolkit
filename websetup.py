@@ -3,10 +3,11 @@ import sys
 import subprocess
 
 if __name__ == '__main__':
-    steps = [
-        "mkdir Toolkit",
-        "git clone --recurse-submodules https://github.com/milos85vasic/Apache-Factory-Toolkit.git ./Toolkit",
-    ]
+    if not os.path.exists("Toolkit"):
+        steps = [
+            "mkdir Toolkit",
+            "git clone --recurse-submodules https://github.com/milos85vasic/Apache-Factory-Toolkit.git ./Toolkit",
+        ]
 
     for cmd in steps:
         os.system(cmd)
