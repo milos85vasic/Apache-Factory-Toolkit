@@ -7,7 +7,7 @@ if __name__ == '__main__':
     steps = []
     if not os.path.exists("Toolkit"):
         exists = False
-        steps.append(
+        steps.extend(
             [
                 "mkdir Toolkit",
                 "git clone --recurse-submodules https://github.com/milos85vasic/Apache-Factory-Toolkit.git ./Toolkit",
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     ]
 
     if not exists:
-        steps.append(
+        steps.extend(
             [
                 "rm -rf ./Toolkit",
                 "rm -f " + os.path.basename(__file__)
