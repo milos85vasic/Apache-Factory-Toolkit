@@ -3,7 +3,9 @@ import sys
 import subprocess
 
 if __name__ == '__main__':
+    exists = True
     if not os.path.exists("Toolkit"):
+        exists = False
         steps = [
             "mkdir Toolkit",
             "git clone --recurse-submodules https://github.com/milos85vasic/Apache-Factory-Toolkit.git ./Toolkit",
@@ -26,10 +28,16 @@ if __name__ == '__main__':
         setup += " " + branch
 
     steps = [
-        setup,
-        "rm -rf ./Toolkit",
-        "rm -f " + os.path.basename(__file__)
+        setup
     ]
+
+    if not exists:
+        steps.append(
+            [
+                "rm -rf ./Toolkit",
+                "rm -f " + os.path.basename(__file__)
+            ]
+        )
 
     for cmd in steps:
         os.system(cmd)
