@@ -3,8 +3,7 @@ import sys
 import subprocess
 import time
 
-millis = int(round(time.time() * 1000))
-toolkit_directory = "Toolkit"  # TODO: + "_" + str(millis)
+toolkit_directory = "Toolkit"
 toolkit_repo = "https://github.com/milos85vasic/Apache-Factory-Toolkit.git"
 
 if __name__ == '__main__':

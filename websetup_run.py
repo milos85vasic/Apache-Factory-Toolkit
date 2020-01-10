@@ -11,6 +11,7 @@ if __name__ == '__main__':
         branch = sys.argv[2]
 
     if what == apache_factory:
+        print("Apache server factory application recognized.")
         steps = [
             run_as_su(
                 concatenate(
@@ -27,6 +28,7 @@ if __name__ == '__main__':
         exit()
 
     if what == pyramid_factory:
+        print("Pyramid factory application recognized.")
         steps = [
             run_as_su(
                 concatenate(
@@ -43,6 +45,7 @@ if __name__ == '__main__':
         exit()
 
     if what == mail_server_factory:
+        print("Mail server factory application recognized.")
         steps = [
             run_as_su(
                 concatenate(
