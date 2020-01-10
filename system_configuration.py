@@ -118,7 +118,7 @@ def get_system_configuration(configuration_dir=apache_factory_configuration_dir)
             with open(default_config_json, 'w') as outfile:
                 json.dump(system_configuration, outfile)
         except IOError:
-            print("Can't access " + default_config_json)
+            print("Can't access [3]: " + default_config_json)
     else:
         system_configuration = json.load(open(default_config_json))
     return system_configuration

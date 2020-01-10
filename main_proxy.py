@@ -54,7 +54,7 @@ if account in system_configuration:
                                         outfile.write("\n")
 
                             except IOError:
-                                print("Can't access " + destination_file)
+                                print("Can't access [2]: " + destination_file)
                         else:
                             print("Virtual host configuration already exist: " + destination_file)
                     else:
