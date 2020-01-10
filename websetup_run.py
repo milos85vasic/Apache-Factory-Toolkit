@@ -1,6 +1,6 @@
 import sys
-from .commands import *
-from .configuration import *
+from commands import *
+from configuration import *
 
 branch = "master"
 
