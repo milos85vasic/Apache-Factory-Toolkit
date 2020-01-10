@@ -1,16 +1,21 @@
 import os
 import sys
 import subprocess
+import time
+
+millis = int(round(time.time() * 1000))
+toolkit_directory = "Toolkit"  # TODO: + "_" + str(millis)
+toolkit_repo = "https://github.com/milos85vasic/Apache-Factory-Toolkit.git"
 
 if __name__ == '__main__':
     exists = True
     steps = []
-    if not os.path.exists("Toolkit"):
+    if not os.path.exists(toolkit_directory):
         exists = False
         steps.extend(
             [
-                "mkdir Toolkit",
-                "git clone --recurse-submodules https://github.com/milos85vasic/Apache-Factory-Toolkit.git ./Toolkit",
+                "mkdir " + toolkit_directory,
+                "git clone --recurse-submodules " + toolkit_repo + " ./" + toolkit_directory,
             ]
         )
 
@@ -25,7 +30,7 @@ if __name__ == '__main__':
 
     from Toolkit.commands import get_python_cmd
     python_cmd = get_python_cmd()
-    setup = python_cmd + " ./Toolkit/websetup_run.py " + what
+    setup = python_cmd + " ./" + toolkit_directory + "/websetup_run.py " + what
     if branch is not "master":
         setup += " " + branch
 
@@ -36,7 +41,7 @@ if __name__ == '__main__':
     if not exists:
         steps.extend(
             [
-                "rm -rf ./Toolkit",
+                "rm -rf ./" + toolkit_directory,
                 "rm -f " + os.path.basename(__file__)
             ]
         )
