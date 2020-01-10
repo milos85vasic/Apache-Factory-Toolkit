@@ -288,5 +288,23 @@ def get_python_cmd():
     return "python"
 
 
-def get_users_list():
+def get_users_list_cmd():
     return "awk -F: '{ print $1}' /etc/passwd"
+
+
+def get_users_list():
+    users = []
+    result, _ = subprocess.Popen([get_users_list_cmd()], stdout=subprocess.PIPE).communicate()
+    lines = result.splitlines(keepends=False)
+    for line in lines:
+        utf_line = line.decode('UTF-8')
+        users.append(utf_line)
+    return users
+
+
+def userdel(user):
+    return "userdel -Z -r -f " + user
+
+
+def groupdel(group):
+    return "groupdel " + group
