@@ -40,7 +40,7 @@ def set_git_info():
         with open(destination, 'w') as outfile:
             json.dump(git_configuration, outfile)
     except IOError:
-        print("Can't access " + destination)
+        print("Can't access [1]: " + destination)
 
 
 def get_git_info():

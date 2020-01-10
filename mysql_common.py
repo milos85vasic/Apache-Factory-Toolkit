@@ -3,6 +3,8 @@ import sys
 from .commands import *
 from .mysql_common_5560 import *
 
+mysql_init_tmp = "init.tmp"
+
 def get_account_from_sys_argv():
     return sys.argv[1]
 
@@ -29,14 +31,6 @@ def get_start_command(account_home):
 def get_start_command_init(account_home):
     return "/mysqld --defaults-extra-file=" + account_home + "/" + mysql + "/" + mysql_conf_dir \
            + "/my.cnf --init-file=" + account_home + "/" + apache_factory + "/" + mysql_init_tmp + " &"
-
-
-
-
-
-mysql_init_tmp = "init.tmp"
-
-system_configuration = get_system_configuration()
 
 # MySQL 8.0:
 def initialize_mysql_8():
