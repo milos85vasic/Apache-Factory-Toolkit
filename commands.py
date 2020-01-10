@@ -286,3 +286,7 @@ def get_python_cmd():
             if not "no " + item in utf_line:
                 return item
     return "python"
+
+
+def get_users_list():
+    return "awk -F: '{ print $1}' /etc/passwd"
