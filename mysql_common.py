@@ -1,10 +1,14 @@
 import sys
-from commands import *
-from mysql_common_5560 import *
+
+from .commands import *
+from .mysql_common_5560 import *
+
+def get_account_from_sys_argv():
+    return sys.argv[1]
 
 
 def user_home():
-    return get_home_directory_path(account)
+    return get_home_directory_path(get_account_from_sys_argv())
 
 
 def get_mysql_bin_directory():
@@ -27,12 +31,15 @@ def get_start_command_init(account_home):
            + "/my.cnf --init-file=" + account_home + "/" + apache_factory + "/" + mysql_init_tmp + " &"
 
 
-account = sys.argv[1]
+
+
+
 mysql_init_tmp = "init.tmp"
 
 system_configuration = get_system_configuration()
 
 # MySQL 8.0:
-initialize = "/mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + \
-             "/my.cnf --initialize --user=" + account
+def initialize_mysql_8():
+    return "/mysqld --defaults-file=" + user_home() + "/" + mysql + "/" + mysql_conf_dir + \
+             "/my.cnf --initialize --user=" + get_account_from_sys_argv()
 

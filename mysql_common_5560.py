@@ -1,5 +1,5 @@
-from configuration import *
-from system_configuration import *
+from .configuration import *
+from .system_configuration import *
 
 
 # MySQL 5.5.60:
