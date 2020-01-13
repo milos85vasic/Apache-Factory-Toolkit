@@ -36,7 +36,7 @@ def get_yum_group(what):
 
 
 def install_package(*what):
-    return get_yum(what)
+    return get_yum(*what)
 
 
 def install_package_group(what):
