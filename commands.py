@@ -294,7 +294,7 @@ def get_users_list_cmd():
 
 def get_users_list():
     users = []
-    result, _ = subprocess.Popen([get_users_list_cmd()], stdout=subprocess.PIPE).communicate()
+    result, _ = subprocess.Popen([get_users_list_cmd()], stdout=subprocess.PIPE, shell=True).communicate()
     lines = result.splitlines(keepends=False)
     for line in lines:
         utf_line = line.decode('UTF-8')
