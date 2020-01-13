@@ -12,15 +12,35 @@ def sudo(what):
     return "sudo " + what
 
 
+def get_package_inallation_cmd():
+    cmds = ["dnf", "yum", "apt-get"]
+    for item in cmds:
+        result, _ = subprocess.Popen(["which", item], stdout=subprocess.PIPE).communicate()
+        lines = result.splitlines(keepends=False)
+        for line in lines:
+            utf_line = line.decode('UTF-8')
+            if not "no " + item in utf_line:
+                return item
+    return "yum"
+
+
 def get_yum(*what):
     items = ""
     for item in what:
         items += item + " "
-    return "yum install -y " + items
+    return get_package_inallation_cmd() + " install -y " + items
 
 
 def get_yum_group(what):
-    return "yum groups install -y '" + what + "'"
+    return get_package_inallation_cmd() + " groups install -y '" + what + "'"
+
+
+def install_package(*what):
+    return get_yum(what)
+
+
+def install_package_group(what):
+    return get_yum_group(what)
 
 
 def concatenate(*what):
