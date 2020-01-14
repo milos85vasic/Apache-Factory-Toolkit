@@ -2,7 +2,9 @@ import os
 import subprocess
 
 here = "./"
-
+os_unknown = "Unknown"
+os_centos_7 = "CentOS Linux 7"
+os_centos_8 = "CentOS Linux 8"
 
 def run_as_su(what):
     return 'su -c "' + what + '"'
@@ -328,3 +330,20 @@ def userdel(user):
 
 def groupdel(group):
     return "groupdel " + group
+
+
+def hostnamectl():
+    return "hostnamectl"
+
+
+def get_os_name():
+    result, _ = subprocess.Popen([hostnamectl()], stdout=subprocess.PIPE, shell=True).communicate()
+    lines = result.splitlines(keepends=False)
+    for line in lines:
+        utf_line = line.decode('UTF-8')
+        if "Operating System:" in utf_line:
+            if "CentOS Linux 8" in utf_line:
+                return os_centos_8
+            if "CentOS Linux 7" in utf_line:
+                return os_centos_7
+    return os_unknown
