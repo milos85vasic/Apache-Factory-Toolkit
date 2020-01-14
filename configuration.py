@@ -45,8 +45,10 @@ content_dir_name = "Content"
 matrices_dir_name = "Matrices"
 service_indexes = ["index.html", "index.htm", "index.php", "setup.py"]
 
-rpm_fusion_free = "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm"
-rpm_fusion_non_free = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm"
+rpm_fusion_free_7 = "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm"
+rpm_fusion_non_free_7 = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm"
+rpm_fusion_free_8 = "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm"
+rpm_fusion_non_free_8 = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm"
 
 apache_vhosts_directory = "vhosts"
 starter_script = "starter.py"
@@ -54,6 +56,7 @@ starter_script_py = "starter_py.py"
 rc_local = "/etc/rc.d/rc.local"
 main_proxy_script = "main_proxy.py"
 
+dnf_package_group_development = "Development Tools"
 
 def get_home_directory_path(account):
     return "/home/" + account
