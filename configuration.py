@@ -47,8 +47,8 @@ service_indexes = ["index.html", "index.htm", "index.php", "setup.py"]
 
 rpm_fusion_free_7 = "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm"
 rpm_fusion_non_free_7 = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm"
-rpm_fusion_free_8 = "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm"
-rpm_fusion_non_free_8 = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-7.noarch.rpm"
+rpm_fusion_free_8 = "https://download1.rpmfusion.org/free/el/rpmfusion-free-release-8.noarch.rpm"
+rpm_fusion_non_free_8 = "https://download1.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-8.noarch.rpm"
 
 apache_vhosts_directory = "vhosts"
 starter_script = "starter.py"
