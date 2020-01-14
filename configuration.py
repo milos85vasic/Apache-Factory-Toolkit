@@ -58,6 +58,9 @@ main_proxy_script = "main_proxy.py"
 
 dnf_package_group_development = "Development Tools"
 
+key_account = "account"
+key_password = "password"
+
 def get_home_directory_path(account):
     return "/home/" + account
 

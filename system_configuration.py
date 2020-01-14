@@ -60,17 +60,19 @@ def init_system_configuration(
         if arguments.index(arg) > 0 and not str(arg).startswith(arg_prefix):
             system_configuration[arg] = {key_configuration_server_admin: "root@localhost"}
             account = arg
-            save_account(account)
+            save_account({key_account: account})
         if str(arg).startswith(arg_server_admin):
             if arguments.index(arg) == 1:
                 print("First argument must be name of the account!")
                 exit(1)
             server_admin = str(arg).replace(arg_server_admin + "=", "")
-            account = get_account()
+            account_data = get_account()
+            account = account_data[key_account]
             system_configuration[account][key_configuration_server_admin] = server_admin
     if os.path.isfile(services_file):
         services_config = json.load(open(services_file))
-        account = get_account()
+        account_data = get_account()
+        account = account_data[key_account]
         system_configuration[account][key_services] = services_config
     save_system_configuration(system_configuration, configuration_dir=configuration_dir)
 
