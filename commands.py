@@ -189,9 +189,9 @@ def python(script, *params):
     for item in params:
         arguments += " " + item
     if not arguments:
-        return get_python_cmd + " " + script
+        return get_python_cmd() + " " + script
     else:
-        return get_python_cmd + " " + script + " " + arguments
+        return get_python_cmd() + " " + script + " " + arguments
 
 
 def rm(what):
