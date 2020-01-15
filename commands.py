@@ -189,9 +189,9 @@ def python(script, *params):
     for item in params:
         arguments += " " + item
     if not arguments:
-        return "python " + script
+        return get_python_cmd + " " + script
     else:
-        return "python " + script + " " + arguments
+        return get_python_cmd + " " + script + " " + arguments
 
 
 def rm(what):
@@ -312,6 +312,13 @@ def get_python_cmd():
             if not "no " + item in utf_line:
                 return item
     return "python"
+
+
+def get_python_installation_package():
+    os_name = get_os_name()
+    if os_name == os_centos_8:
+        return "python36"
+    return "python"  # TODO: Support all OSs.
 
 
 def get_users_list_cmd():
