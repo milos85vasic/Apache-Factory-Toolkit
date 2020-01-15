@@ -56,24 +56,38 @@ def init_system_configuration(
         run(steps)
 
     system_configuration = get_system_configuration(configuration_dir)
+    account_data = {}
     for arg in arguments:
         if arguments.index(arg) > 0 and not str(arg).startswith(arg_prefix):
-            system_configuration[arg] = {key_configuration_server_admin: "root@localhost"}
-            account = arg
-            save_account({key_account: account})
+            if key_account not in account_data:
+                system_configuration[arg] = {key_configuration_server_admin: "root@localhost"}
+                account = arg
+                account_data[key_account] = account
+                save_account(account_data)
+            else:
+                if key_password not in account_data:
+                    password = arg
+                    account_data[key_password] = password
+                    save_account(account_data)
         if str(arg).startswith(arg_server_admin):
             if arguments.index(arg) == 1:
                 print("First argument must be name of the account!")
                 exit(1)
             server_admin = str(arg).replace(arg_server_admin + "=", "")
-            account_data = get_account()
             account = account_data[key_account]
-            system_configuration[account][key_configuration_server_admin] = server_admin
+            if account:
+                system_configuration[account][key_configuration_server_admin] = server_admin
+            else:
+                print("No account information available to continue further [1].")
+                exit(1)
     if os.path.isfile(services_file):
         services_config = json.load(open(services_file))
-        account_data = get_account()
         account = account_data[key_account]
-        system_configuration[account][key_services] = services_config
+        if account:
+            system_configuration[account][key_services] = services_config
+        else:
+            print("No account information available to continue further [2].")
+            exit(1)
     save_system_configuration(system_configuration, configuration_dir=configuration_dir)
 
     steps = [
