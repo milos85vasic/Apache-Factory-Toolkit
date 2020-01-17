@@ -154,6 +154,7 @@ def run_as_user(account, command):
 
 
 def run_as_user_with_password(account, password, command):
+    #  TODO: Check first if relatively to the current location script exists.
     if not os.path.isfile("~/" + toolkit_directory + "/" + run_as_user_with_password_script):
         steps = []
         if not os.path.isdir("~/" + toolkit_directory):
@@ -166,7 +167,7 @@ def run_as_user_with_password(account, password, command):
         run(steps)
     # return "sh " + "~/" + toolkit_directory + "/" + run_as_user_with_password_script + " " + account + " " + password + " \"" + command + "\""
     #  return "sh " + "~/" + toolkit_directory + "/" + run_as_user_with_password_script + " test1 TestUser001 ls"
-    return "echo XXXXXXXXXXXXXXXXXXXXXX"
+    return "echo XXXXXXXXXXXXXXXXXXXXXX"  # FIXME: Still does not work.
 
 
 def git_clone(what):
