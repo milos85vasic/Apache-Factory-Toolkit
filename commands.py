@@ -165,7 +165,8 @@ def run_as_user_with_password(account, password, command):
         )
         run(steps)
     # return "sh " + "~/" + toolkit_directory + "/" + run_as_user_with_password_script + " " + account + " " + password + " \"" + command + "\""
-    return "sh " + "~/" + toolkit_directory + "/" + run_as_user_with_password_script + " test1 TestUser001 ls"
+    #  return "sh " + "~/" + toolkit_directory + "/" + run_as_user_with_password_script + " test1 TestUser001 ls"
+    return "echo XXXXXXXXXXXXXXXXXXXXXX"
 
 
 def git_clone(what):
