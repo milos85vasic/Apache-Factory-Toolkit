@@ -133,8 +133,7 @@ def add_user(user):
 
 
 def add_user_with_password(user, password):
-    # return "useradd -m " + user + " && yes " + password + " | passwd " + user
-    return ""
+    return "useradd -m " + user + " && yes " + password + " | passwd " + user
 
 
 def add_group(group):
@@ -150,7 +149,8 @@ def run_as_user(account, command):
 
 
 def run_as_user_with_password(account, password, command):
-    return "su - " + account + " <<! >/dev/null 2>&1\n\r" + password + "\n\rwhoami > /dev/tty\n\r" + command + " > /dev/tty\n\r!"
+    # return "su - " + account + " <<! >/dev/null 2>&1\n\r" + password + "\n\rwhoami > /dev/tty\n\r" + command + " > /dev/tty\n\r!"
+    return ""
 
 
 def git_clone(what):
