@@ -149,7 +149,8 @@ def run_as_user(account, command):
 
 
 def run_as_user_with_password(account, password, command):
-    return "sh run_as_user_with_password.sh " + account + " " + password + " \"" + command + "\""
+    # return "sh run_as_user_with_password.sh " + account + " " + password + " \"" + command + "\""
+    return "sh run_as_user_with_password.sh test1 TestUser001 ls"
 
 
 def git_clone(what):
