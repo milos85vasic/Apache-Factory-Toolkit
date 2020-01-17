@@ -2,6 +2,5 @@
 
 su - "$1" <<! >/dev/null 2>&1
 "$2"
-whoami > /dev/tty
-"$3" > /dev/tty
+$3 > /dev/tty
 !
