@@ -133,7 +133,8 @@ def add_user(user):
 
 
 def add_user_with_password(user, password):
-    return "useradd -m " + user + " && yes " + password + " | passwd " + user
+    # return "useradd -m " + user + " && yes " + password + " | passwd " + user
+    return ""
 
 
 def add_group(group):
