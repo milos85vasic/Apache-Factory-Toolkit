@@ -149,8 +149,7 @@ def run_as_user(account, command):
 
 
 def run_as_user_with_password(account, password, command):
-    # return "su - " + account + " <<! >/dev/null 2>&1\n\r" + password + "\n\rwhoami > /dev/tty\n\r" + command + " > /dev/tty\n\r!"
-    return ""
+    return "sh run_as_user_with_password.sh " + account + " " + password + " \"" + command + "\""
 
 
 def git_clone(what):
