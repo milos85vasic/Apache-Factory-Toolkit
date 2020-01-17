@@ -6,6 +6,11 @@ os_unknown = "Unknown"
 os_centos_7 = "CentOS Linux 7"
 os_centos_8 = "CentOS Linux 8"
 
+toolkit_directory = "Toolkit"
+toolkit_repo = "https://github.com/milos85vasic/Apache-Factory-Toolkit.git"
+toolkit_repo_raw_access = "https://raw.githubusercontent.com/milos85vasic/Apache-Factory-Toolkit/master/"
+run_as_user_with_password_script = "run_as_user_with_password.sh"
+
 def run_as_su(what):
     return 'su -c "' + what + '"'
 
@@ -149,8 +154,18 @@ def run_as_user(account, command):
 
 
 def run_as_user_with_password(account, password, command):
-    # return "sh run_as_user_with_password.sh " + account + " " + password + " \"" + command + "\""
-    return "sh run_as_user_with_password.sh test1 TestUser001 ls"
+    if not os.path.isfile("~/" + toolkit_directory + "/" + run_as_user_with_password_script):
+        steps = []
+        if not os.path.isdir("~/" + toolkit_directory):
+            steps.append(
+                mkdir("~/" + toolkit_directory)
+            )
+        steps.append(
+            "git clone --recurse-submodules " + toolkit_repo + " ~/" + toolkit_directory
+        )
+        run(steps)
+    # return "sh " + "~/" + toolkit_directory + "/" + run_as_user_with_password_script + " " + account + " " + password + " \"" + command + "\""
+    return "sh " + "~/" + toolkit_directory + "/" + run_as_user_with_password_script + " test1 TestUser001 ls"
 
 
 def git_clone(what):
