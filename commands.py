@@ -148,6 +148,10 @@ def run_as_user(account, command):
     return "sudo -H -u " + account + " bash -c '" + command + "'"
 
 
+def run_as_user_with_password(account, password, command):
+    return "su - " + account + " <<! >/dev/null 2>&1\n\r" + passwd + "\n\rwhoami > /dev/tty\n\r" + command + " > /dev/tty\n\r!"
+
+
 def git_clone(what):
     return "git clone " + what
 
